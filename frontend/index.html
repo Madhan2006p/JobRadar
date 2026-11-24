@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JobRadar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <h1>JobRadar</h1>
+    </div>
+    <span id="api-status" class="badge badge-wait" role="status">Checking API…</span>
+  </header>
+
+  <main class="layout">
+    <section class="jobs" aria-labelledby="jobs-title">
+      <div class="jobs-head">
+        <h2 id="jobs-title">Jobs</h2>
+        <label class="search">
+          <span class="visually-hidden">Search by title or company</span>
+          <input id="search" type="search" placeholder="Search title or company…" autocomplete="off">
+        </label>
+      </div>
+
+      <p id="summary" class="summary"></p>
+      <ul id="job-list" class="job-list"></ul>
+      <p id="empty" class="empty" hidden>No jobs found.</p>
+
+      <nav class="pager" aria-label="Pages">
+        <button id="prev" type="button">← Newer</button>
+        <span id="page-info"></span>
+        <button id="next" type="button">Older →</button>
+      </nav>
+    </section>
+
+    <div class="side">
+    <section class="card sources" aria-labelledby="sources-title">
+      <div class="card-head">
+        <h2 id="sources-title">Sources</h2>
+        <button id="fetch-btn" type="button" class="primary small">Fetch now</button>
+      </div>
+      <ul id="source-list" class="source-list"></ul>
+      <p id="fetch-msg" class="form-msg" role="status"></p>
+    </section>
+
+    <aside class="card add" aria-labelledby="add-title">
+      <h2 id="add-title">Add a job</h2>
+      <form id="add-form" novalidate>
+        <label><span>Title <span class="req">*</span></span>
+          <input name="title" required placeholder="Backend Engineer Intern">
+        </label>
+        <label><span>Company <span class="req">*</span></span>
+          <input name="company" required placeholder="Acme">
+        </label>
+        <label><span>Location</span>
+          <input name="location" placeholder="Remote / Bengaluru">
+        </label>
+        <label><span>Job URL <span class="req">*</span></span>
+          <input name="url" type="url" required placeholder="https://…">
+        </label>
+        <label><span>Skills <small>(comma separated)</small></span>
+          <input name="skills" placeholder="python, postgresql, redis">
+        </label>
+        <label><span>Posted on</span>
+          <input name="posted_at" type="date">
+        </label>
+        <button type="submit" class="primary">Save job</button>
+        <p id="form-msg" class="form-msg" role="alert"></p>
+      </form>
+    </aside>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

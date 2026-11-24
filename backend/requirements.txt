@@ -1,0 +1,10 @@
+# Week 1
+Django==5.1.4
+djangorestframework==3.15.2
+django-cors-headers==4.6.0
+psycopg[binary]==3.2.3
+
+# Week 2: uncomment when you start Celery + Redis
+# celery==5.4.0
+# redis==5.2.1
+# requests==2.32.3
